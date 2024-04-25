@@ -1,0 +1,5 @@
+<h1> All Posts </h1>
+<%= @posts.each do |post| %>
+    <%= post.data %></br>
+    <h5> created by <%= post.user.email %></h5></br>
+<% end %>

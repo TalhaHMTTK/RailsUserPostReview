@@ -1,0 +1,21 @@
+<h1>Create a New Post </h1>
+
+<% if @post.errors.any? %>
+
+<ul>
+    <%= @post.errors.full_messages.each do |msg| %>
+        <li><%= msg %> </li>
+    <% end %>
+</ul>
+
+<% end %>
+
+<%= form_with scope: :post, url: posts_path, local: true, data: { turbo: false } do |f| %>
+
+<p>
+<%= f.label :data %><br/>
+<%= f.text_field :data %>
+</p>
+<%= f.hidden_field :user_id, value: current_user.id %>
+<%= f.submit %>
+<% end %>
